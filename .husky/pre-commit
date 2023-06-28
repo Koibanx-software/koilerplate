@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname -- "$0")/_/husky.sh"
+npx pretty-quick --staged
+# yarn prettier:fix
+# yarn lint
+git add .
