@@ -47,11 +47,6 @@ export class AuthService {
       await this.repositories.auth.createOTP(userFinded.id)
     ).toString();
     log.info({ otpCode }, "otp");
-    await this.repositories.notification.sendOTPEmail(
-      email,
-      emailsTemplates.changePassword,
-      otpCode
-    );
     return otpCode;
   }
   async forgotPassword(email: string) {
@@ -61,11 +56,6 @@ export class AuthService {
     ).toString();
     const token = await this.signIn(email, otp);
     const link = `https://store-pointv2.dev.build.koibanx.com/change-password?token=${token.jwt}`;
-    await this.repositories.notification.sendPasswordForgot(
-      email,
-      emailsTemplates.forgotPassword,
-      link
-    );
   }
 
   async isAuthorized(token: string, permission: string) {

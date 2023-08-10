@@ -3,7 +3,6 @@ import { forgotPassword } from "./auth/forgotPassword";
 import { authOTP } from "./auth/otp";
 import { profileGet } from "./auth/profile";
 import { signIn } from "./auth/signIn";
-import { balanceUser } from "./user/balanceUser";
 import { userCreate } from "./user/create";
 import { updateUser } from "./user/updateUser";
 import { DependsOnMethod, Routing } from "express-zod-api";
@@ -15,7 +14,6 @@ export const routing: Routing = {
         post: userCreate,
         put: updateUser,
       }),
-      balance: balanceUser,
     },
     auth: {
       otp: authOTP,
