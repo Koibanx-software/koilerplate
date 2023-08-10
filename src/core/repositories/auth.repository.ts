@@ -3,7 +3,7 @@ import {
   AuthUser,
   CreateAuthUser,
   UpdateAuthUser,
-} from "core/entities/Auth.entity";
+} from "core/entities/auth.entity";
 
 export interface IAuthRepository {
   updateUser(data: UpdateAuthUser): Promise<AuthUser>;

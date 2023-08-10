@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cambio el estado de la orden</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        width: 600px;
+        padding-bottom: 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        background: #fff;
+      }
+      .banner-container {
+        width: 600px;
+        height: 160px;
+        flex-shrink: 0;
+        background: radial-gradient(
+          341.53% 112.07% at 5.33% 25.94%,
+          #ff6700 0%,
+          #000 100%
+        );
+      }
+      .div-title {
+        display: flex;
+        width: 520px;
+        flex-direction: column;
+        color: var(--primary-color, #ff6700);
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .description {
+        display: flex;
+        width: 520px;
+        flex-direction: column;
+        color: #000;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .button-text-container {
+        color: #fff;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.154px;
+      }
+      .button-container {
+        display: flex;
+        padding: 8px 40px;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 30px;
+        background: #ff7300;
+      }
+      .signature {
+        display: flex;
+        width: 520px;
+        flex-direction: column;
+        color: var(--primary-color, #ff6700);
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .footer {
+        display: flex;
+        width: 520px;
+        flex-direction: column;
+        color: #c4c4c4;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .link1 {
+        outline: none;
+        text-decoration: none;
+        padding: 2px 1px 0;
+      }
+
+      .link1:link {
+        color: #ffffff;
+      }
+
+      .link1:visited {
+        color: #ffffff;
+      }
+
+      .link1:focus {
+        /* border-bottom: 1px solid; */
+        background: #e8eae7;
+      }
+
+      .link1:hover {
+        /* border-bottom: 1px solid; */
+        background: #ff7300;
+      }
+
+      .link1:active {
+        background: #ff7300;
+        color: #ffffff;
+      }
+
+      .link2 {
+        text-decoration: none;
+      }
+
+      .link2:link {
+        color: #c4c4c4;
+      }
+
+      .link2:visited {
+        color: #c4c4c4;
+      }
+
+      .link2:focus {
+        background: #e8eae7;
+      }
+
+      .link2:hover {
+        border-bottom: none;
+      }
+
+      .link2:active {
+        color: #c4c4c4;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img
+        class="max-width"
+        border="0"
+        style="
+          background: radial-gradient(
+            341.53% 112.07% at 5.33% 25.94%,
+            #ff6700 0%,
+            #000 100%
+          );
+        "
+        width="600"
+        height="160"
+        alt=""
+        data-proportionally-constrained="true"
+        data-responsive="true"
+        src="https://koibanx-crypto-checkout.s3.us-east-2.amazonaws.com/koibanx-crypto-checkout/d514fda5-7394-4379-95b8-d4a68b0cd9bd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIASUQSSICB5VJ46LJV%2F20230707%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230707T155635Z&X-Amz-Expires=18000&X-Amz-Signature=4801438b41404dc885d3bb5668ec7938d92085a9e26ffafd2d5cbfe71d892f92&X-Amz-SignedHeaders=host&x-id=GetObject"
+      />
+    </div>
+    <!-- BEGIN: MODIFIABLE CODE -->
+    <div id="title" class="div-title">
+      Cambio el estado de la orden<br /><br />
+    </div>
+    <div id="description1" class="description">
+      Orden: <b>{{orderId}}</b><br />
+    </div>
+    <div id="code" class="description">
+      Antes: <b>{{oldStatus}}</b><br />
+      Ahora: <b>{{newStatus}}</b><br />
+    </div>
+    <div id="button" class="button-container button-text-container">
+      <a href="https://www.koibanx.com" target="_blank" class="link1"
+        >Ir a la p&aacute;gina oficial Koibanx</a
+      >
+    </div>
+    <div id="description2" class="description">Saludos!</div>
+    <div id="signature" class="signature">El equipo de Koibanx</div>
+    <div id="footer" class="footer">
+      CONFIDENCIAL | Se hace saber que este correo electr&oacute;nico
+      est&aacute; dirigido &uacute;nica y exclusivamente al/los destinatario/s
+      del mismo y puede contener informaci&oacute;n privilegiada, confidencial
+      que no puede ser divulgada. Le rogamos no diseminar, distribuir o copiar
+      su contenido por e-mail o por cualquier otro medio. En tal caso, por
+      favor, notif&iacute;quese inmediatamente por e-mail a
+      <a href="mailto:{{emailLegal}}" target="_blank" class="link2"
+        >{{emailLegal}}</a
+      >
+      y luego borre todas las copias del e-mail. Muchas gracias.<br />
+      PRIVILEGED AND CONFIDENTIAL | It is made known that this e-mail message is
+      addressed solely and exclusively to the recipient/s and may contain
+      privileged and confidential information that cannot be disclosed. Please
+      do not disseminate, distribute or copy the content of this communication,
+      by e-mail or otherwise. Instead, please notify us immediately to the
+      e-mail address
+      <a href="mailto:{{emailLegal}}" target="_blank" class="link2"
+        >{{emailLegal}}</a
+      >
+      and then delete and discard all copies of the e-mail. Thank you.
+    </div>
+    <!-- END: MODIFIABLE CODE -->
+  </body>
+</html>
