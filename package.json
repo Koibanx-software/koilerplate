@@ -15,7 +15,7 @@
     "prettier": "prettier --config .prettierrc.json --check \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "prettier:fix": "prettier --write .",
     "format": "yarn prettier:fix && yarn lint:fix",
-    "start": "npm run build && node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/src/app.js",
+    "start": "npm run build && ts-node -r ts-node/register/transpile-only -r tsconfig-paths/register src/app.ts",
     "test": "jest",
     "prepare": "husky install",
     "release": "standard-version --no-verify"
