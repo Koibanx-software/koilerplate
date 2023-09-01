@@ -10,7 +10,7 @@ async function start() {
   const logger = configVars.baseLogger;
   logger.info("Iniciando API");
 
-  // infrastructure
+  // add infrastructure
   await Promise.all([
     openMongoConnection(configVars.mongo.uri, configVars.baseLogger),
     openBuildConnection(
