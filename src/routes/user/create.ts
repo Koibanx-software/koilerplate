@@ -1,6 +1,6 @@
 import { services } from "app";
 import { endpointFactory } from "config/http/Endpoint";
-import { UserSchema } from "entities/user.entity";
+import { CreateUserSchema, UserSchema } from "entities/user.entity";
 import { withMeta } from "express-zod-api";
 
 export const userCreate = endpointFactory.tagged.build({
@@ -8,11 +8,11 @@ export const userCreate = endpointFactory.tagged.build({
   method: "post",
   shortDescription: "Creacion de usuarios",
   description: "Creacion de usuarios",
-  input: withMeta(UserSchema),
+  input: withMeta(CreateUserSchema),
   output: withMeta(UserSchema),
   handler: async ({ input, options, logger }) => {
     logger.debug("Options1:", options);
-    const userCreated = await services.user.create(input, true);
+    const userCreated = await services.user.create(input);
     return userCreated;
   },
 });

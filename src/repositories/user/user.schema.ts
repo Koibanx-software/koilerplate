@@ -20,13 +20,7 @@ export const userSchema = new Schema<UserDocument>(
       type: Boolean,
       default: false,
     },
-    storeId: {
-      type: String,
-    },
     role: {
-      type: String,
-    },
-    cryptoCheckoutAccountId: {
       type: String,
     },
     isTermsAcepted: {

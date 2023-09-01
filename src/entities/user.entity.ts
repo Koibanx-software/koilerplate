@@ -11,18 +11,20 @@ export const UserSchema = z.object({
   role: z
     .enum(USER_ROLES, { required_error: "role requerido" })
     .default("viewer"),
-  cryptoCheckoutAccountId: z
-    .string({
-      required_error: "cryptocheckout requerido",
-    })
-    .default(""),
-  storeId: z.string({ required_error: "role requerido" }).default(""),
   isTermsAcepted: z.boolean({ required_error: "isTermsAcepted requerido" }),
   isDeleted: z
     .boolean({ required_error: "isTermsAcepted requerido" })
     .default(false),
 });
 export type User = z.infer<typeof UserSchema>;
+
+//create
+export const CreateUserSchema = UserSchema.omit({
+  id: true,
+  isDeleted: true,
+});
+
+export type CreateUser = z.infer<typeof CreateUserSchema>;
 
 // update
 export const UpdateUserSchema = UserSchema.extend({

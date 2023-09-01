@@ -12,14 +12,14 @@ export class AuthService {
     const log = this.logger.child({ function: "getProfile" });
     log.info({ id });
     const userAuthFinded = await this.repositories.auth.getUser(id);
-    const user = await this.repositories.userModel.findOne({
+    const user = await this.repositories.user.findOne({
       _id: userAuthFinded.username,
     });
     return user;
   }
 
   async signIn(username: string, password: string) {
-    const user = await this.repositories.userModel.findOne({
+    const user = await this.repositories.user.findOne({
       email: username,
     });
     const auth = await this.repositories.auth.signIn(user.id, password);
@@ -41,7 +41,7 @@ export class AuthService {
 
   async getOTP(email: string) {
     const log = this.logger.child({ function: "getOtp" });
-    const userFinded = await this.repositories.userModel.findOne({ email });
+    const userFinded = await this.repositories.user.findOne({ email });
     const otpCode = (
       await this.repositories.auth.createOTP(userFinded.id)
     ).toString();
@@ -49,7 +49,7 @@ export class AuthService {
     return otpCode;
   }
   async forgotPassword(email: string) {
-    const userFinded = await this.repositories.userModel.findOne({ email });
+    const userFinded = await this.repositories.user.findOne({ email });
     const otp = (
       await this.repositories.auth.createOTP(userFinded.id)
     ).toString();
