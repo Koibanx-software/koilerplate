@@ -1,7 +1,7 @@
-import { logger } from "../logger/PinoLogger";
+import { ILogger } from "./logger/Logger";
+import { logger } from "config/logger/PinoLogger";
 import * as dotenv from "dotenv";
 import { cleanEnv, json, str } from "envalid";
-import { ILogger } from "logger/Logger";
 
 dotenv.config();
 

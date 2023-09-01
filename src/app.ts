@@ -1,9 +1,9 @@
-import { openBuildConnection } from "adapters/config/build";
-import { http } from "adapters/config/http";
-import { openMongoConnection } from "adapters/config/mongo";
-import { getRepositories } from "adapters/repositories";
 import { configVars } from "config";
-import { Services, getServices } from "core/services";
+import { openBuildConnection } from "config/build";
+import { http } from "config/http";
+import { openMongoConnection } from "config/mongo";
+import { getRepositories } from "repositories";
+import { Services, getServices } from "services";
 
 export let services: Services;
 async function start() {

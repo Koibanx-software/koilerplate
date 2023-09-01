@@ -33,9 +33,6 @@
               schema:
                 type: object
                 properties:
-                  id:
-                    type: string
-                    default: ""
                   name:
                     type: string
                   lastName:
@@ -50,17 +47,8 @@
                       - viewer
                       - admin
                     default: viewer
-                  cryptoCheckoutAccountId:
-                    type: string
-                    default: ""
-                  storeId:
-                    type: string
-                    default: ""
                   isTermsAcepted:
                     type: boolean
-                  isDeleted:
-                    type: boolean
-                    default: false
                 required:
                   - name
                   - lastName
@@ -110,12 +98,6 @@
                       - viewer
                       - admin
                     default: viewer
-                  cryptoCheckoutAccountId:
-                    type: string
-                    default: ""
-                  storeId:
-                    type: string
-                    default: ""
                   isTermsAcepted:
                     type: boolean
                   isDeleted:
