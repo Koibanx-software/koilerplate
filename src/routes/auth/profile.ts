@@ -1,10 +1,10 @@
 import { services } from "app";
-import { authEndpointsFactory } from "config/http/EndpointFactory";
+import { endpointFactory } from "config/http/Endpoint";
 import { UserSchema } from "entities/user.entity";
 import { withMeta } from "express-zod-api";
 import { z } from "zod";
 
-export const profileGet = authEndpointsFactory.build({
+export const profileGet = endpointFactory.auth.build({
   tag: "auth",
   method: "get",
   shortDescription: "Obtener perfil",

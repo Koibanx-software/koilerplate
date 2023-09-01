@@ -1,9 +1,9 @@
 import { services } from "app";
-import { taggedEndpointsFactory } from "config/http/EndpointFactory";
+import { endpointFactory } from "config/http/Endpoint";
 import { withMeta } from "express-zod-api";
 import { z } from "zod";
 
-export const forgotPassword = taggedEndpointsFactory.build({
+export const forgotPassword = endpointFactory.tagged.build({
   tag: "auth",
   method: "post",
   shortDescription: "password olvidado",

@@ -1,9 +1,9 @@
 import { services } from "app";
-import { authEndpointsFactory } from "config/http/EndpointFactory";
+import { endpointFactory } from "config/http/Endpoint";
 import { withMeta } from "express-zod-api";
 import { z } from "zod";
 
-export const changePassword = authEndpointsFactory.build({
+export const changePassword = endpointFactory.auth.build({
   tag: "auth",
   method: "put",
   shortDescription: "Cambiar password",

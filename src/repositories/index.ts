@@ -1,5 +1,5 @@
 //DONT REMOVE KOIGEN PURPOSES:  IMPORT-REPOSITORY
-import { AuthRepository } from "./auth/auth.build.repository";
+import { AuthRepository } from "./auth/auth.repository";
 import { MongoDBRepository } from "./model.repository";
 import { IConfig } from "config";
 import { ILogger } from "config/logger/Logger";

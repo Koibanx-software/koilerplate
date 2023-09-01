@@ -1,9 +1,9 @@
 import { services } from "app";
-import { taggedEndpointsFactory } from "config/http/EndpointFactory";
+import { endpointFactory } from "config/http/Endpoint";
 import { UserSchema } from "entities/user.entity";
 import { withMeta } from "express-zod-api";
 
-export const userCreate = taggedEndpointsFactory.build({
+export const userCreate = endpointFactory.tagged.build({
   tag: "users",
   method: "post",
   shortDescription: "Creacion de usuarios",

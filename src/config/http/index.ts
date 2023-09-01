@@ -1,5 +1,5 @@
 //DONT REMOVE KOIGEN PURPOSES:  IMPORT-CONTROLLER
-import "./EndpointFactory";
+import "./Endpoint";
 import { IConfig, configVars } from "config";
 import { Documentation, createConfig } from "express-zod-api";
 import { createServer } from "express-zod-api";

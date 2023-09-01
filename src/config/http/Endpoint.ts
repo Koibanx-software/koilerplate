@@ -1,16 +1,12 @@
 import { HTTPConfig } from ".";
-import { services } from "app";
-import { configVars } from "config";
+import { authMiddleware } from "./middlewares";
 import { EndpointsFactory, InputValidationError } from "express-zod-api";
-import { createHttpError, createMiddleware } from "express-zod-api";
 import {
   createResultHandler,
   getMessageFromError,
   getStatusCodeFromError,
   IOSchema,
 } from "express-zod-api";
-import fs from "fs";
-import jwt from "jsonwebtoken";
 import { CoreError } from "utils/Errors";
 import { z } from "zod";
 
@@ -32,7 +28,7 @@ function presentZodError(status: number, err: any, res: any) {
     },
   });
 }
-export const yourResultHandler = createResultHandler({
+const yourResultHandler = createResultHandler({
   getPositiveResponse: (output: IOSchema) => ({
     schema: z.object({}),
     mimeType: "application/json", // optinal, or mimeTypes for array
@@ -76,63 +72,15 @@ export const yourResultHandler = createResultHandler({
   },
 });
 
-export const taggedEndpointsFactory = new EndpointsFactory({
+const taggedEndpointsFactory = new EndpointsFactory({
   resultHandler: yourResultHandler,
   config: HTTPConfig,
 });
 
-const authMiddleware = createMiddleware({
-  security: {
-    and: [{ type: "header", name: "Authorization" }],
-  },
-  input: z.object({}), // means no inputs
-  middleware: async ({ request }) => {
-    const token = request.headers.authorization?.replace("Bearer ", "");
-    if (!token) {
-      throw createHttpError(400, "invalid token");
-    }
-    const user = await services.auth.getProfile(token);
-    if (!user) {
-      throw createHttpError(400, "user de token no encontrado");
-    }
-    return {
-      headers: {
-        ...request.headers,
-        token,
-      },
-      user,
-    };
-  },
-});
-const authStoreTokenMiddleware = createMiddleware({
-  security: {
-    and: [{ type: "header", name: "Authorization" }],
-  },
-  input: z.object({}), // means no inputs
-  middleware: async ({ request }) => {
-    try {
-      const token = request.headers.authorization?.replace("JWT ", "");
-      if (!token) {
-        throw createHttpError(400, "falta el token");
-      }
-      const cert = fs.readFileSync("jwtRSA256-public.pem");
-      const store = jwt.verify(token, cert);
-      return {
-        headers: {
-          ...request.headers,
-          token,
-        },
-        store,
-      };
-    } catch (err) {
-      console.log(err);
-      throw createHttpError(400, "token no encontrado");
-    }
-  },
-});
-
-export const authEndpointsFactory =
+const authEndpointsFactory =
   taggedEndpointsFactory.addMiddleware(authMiddleware);
-export const authStoreEndpointsFactory = taggedEndpointsFactory.addMiddleware(
-  authStoreTokenMiddleware
-);
+
+export const endpointFactory = {
+  tagged: taggedEndpointsFactory,
+  auth: authEndpointsFactory,
+};

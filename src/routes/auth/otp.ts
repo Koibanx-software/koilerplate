@@ -1,9 +1,9 @@
 import { services } from "app";
-import { taggedEndpointsFactory } from "config/http/EndpointFactory";
+import { endpointFactory } from "config/http/Endpoint";
 import { withMeta } from "express-zod-api";
 import { z } from "zod";
 
-export const authOTP = taggedEndpointsFactory.build({
+export const authOTP = endpointFactory.tagged.build({
   tag: "auth",
   method: "post",
   shortDescription: "Envio OTP",

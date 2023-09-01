@@ -1,9 +1,9 @@
 import { services } from "app";
-import { taggedEndpointsFactory } from "config/http/EndpointFactory";
+import { endpointFactory } from "config/http/Endpoint";
 import { withMeta } from "express-zod-api";
 import { z } from "zod";
 
-export const signIn = taggedEndpointsFactory.build({
+export const signIn = endpointFactory.tagged.build({
   tag: "auth",
   method: "post",
   shortDescription: "Inicio de sesion",
