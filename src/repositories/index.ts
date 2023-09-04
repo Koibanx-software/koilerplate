@@ -1,4 +1,4 @@
-//DONT REMOVE KOIGEN PURPOSES:  IMPORT-REPOSITORY
+import { IAuthRepository } from "./auth/auth.interface.repository";
 import { AuthRepository } from "./auth/auth.repository";
 import { UserRepository } from "./user";
 import { UserDocument, userSchema } from "./user/user.schema";
@@ -7,7 +7,7 @@ import { ILogger } from "config/logger/Logger";
 import { MongoDBRepository } from "config/mongo/model.repository";
 
 export interface Repositories {
-  auth: AuthRepository;
+  auth: IAuthRepository;
   user: MongoDBRepository<UserDocument>;
 }
 export const getRepositories = (
