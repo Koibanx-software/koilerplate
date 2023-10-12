@@ -4,7 +4,7 @@ export const USER_ROLES = ["cashier", "viewer", "admin"] as const;
 
 //User
 export const UserSchema = z.object({
-  id: z.string().default(""),
+  id: z.string(),
   name: z.string({ required_error: "name requerido" }),
   lastName: z.string({ required_error: "lastName requerido" }),
   email: z.string({ required_error: "email requerido" }).email(),

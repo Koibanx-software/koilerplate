@@ -1,14 +1,15 @@
 import { IAuthRepository } from "./auth/auth.interface.repository";
 import { AuthRepository } from "./auth/auth.repository";
 import { UserRepository } from "./user";
-import { UserDocument, userSchema } from "./user/user.schema";
+import { userSchema } from "./user/user.schema";
 import { IConfig } from "config";
 import { ILogger } from "config/logger/Logger";
-import { MongoDBRepository } from "config/mongo/model.repository";
+import { IMongoRepository } from "config/mongo/model.repository";
+import { User } from "entities/user.entity";
 
 export interface Repositories {
   auth: IAuthRepository;
-  user: MongoDBRepository<UserDocument>;
+  user: IMongoRepository<User>;
 }
 export const getRepositories = (
   logger: ILogger,

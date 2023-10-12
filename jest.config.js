@@ -11,4 +11,11 @@ module.exports = {
   moduleNameMapper: pathsToModuleNameMapper(
     compilerOptions.paths /*, { prefix: '<rootDir>/' } */
   ),
+  testPathIgnorePatterns: [
+    "<rootDir>/dist/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/docs/",
+    "<rootDir>/build/",
+  ],
+  collectCoverageFrom: ["src/**"],
 };

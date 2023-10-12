@@ -11,7 +11,6 @@ export const updateUser = endpointFactory.tagged.build({
   input: withMeta(UpdateUserSchema),
   output: withMeta(UserSchema),
   handler: async ({ input, options, logger }) => {
-    logger.debug("Options1:", options);
     const userCreated = await services.user.update(input);
     return userCreated;
   },

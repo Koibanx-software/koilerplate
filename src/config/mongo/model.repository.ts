@@ -1,11 +1,9 @@
 import { FilterQuery } from "mongoose";
-import { Document, Model, model, Schema } from "mongoose";
+import { Model, model, Schema } from "mongoose";
 import { PaginatedResult } from "utils/Pagination";
 
-interface IEntity extends Document {}
-
 export interface IMongoRepository<T> {
-  create(payload: T): Promise<T>;
+  create(payload: Partial<T>): Promise<T>;
   update(query: object, update: Partial<T>): Promise<T | null>;
   delete(query: FilterQuery<T>): Promise<boolean>;
   findOne(criteria: FilterQuery<T>): Promise<T>;
@@ -18,9 +16,7 @@ export interface IMongoRepository<T> {
   ): Promise<PaginatedResult<T>>;
 }
 
-export class MongoDBRepository<T extends IEntity>
-  implements IMongoRepository<T>
-{
+export class MongoDBRepository<T> implements IMongoRepository<T> {
   public readonly model: Model<T>;
 
   constructor(private modelName: string, schema: Schema<T>) {

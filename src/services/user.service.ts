@@ -1,6 +1,7 @@
 import { ILogger } from "config/logger/Logger";
 import { CreateUser, UpdateUser } from "entities/user.entity";
 import { Repositories } from "repositories";
+import { CoreError } from "utils/Errors";
 import { PaginatedParams } from "utils/Pagination";
 
 export class UserService {
@@ -41,7 +42,12 @@ export class UserService {
   async update(data: UpdateUser) {
     const log = this.logger.child({ function: "update" });
     log.info({ data }, "updating user");
-    return this.repositories.user.update({ _id: data.id }, data);
+    const userUpdated = await this.repositories.user.update(
+      { _id: data.id },
+      data
+    );
+    if (!userUpdated) throw new CoreError("NOT_FOUND", "usuario no encontrado");
+    return userUpdated;
   }
 
   async remove(id: string) {

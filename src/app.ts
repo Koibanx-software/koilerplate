@@ -2,6 +2,7 @@ import { configVars } from "config";
 import { openBuildConnection } from "config/build";
 import { http } from "config/http";
 import { openMongoConnection } from "config/mongo";
+import "module-alias/register";
 import { getRepositories } from "repositories";
 import { Services, getServices } from "services";
 

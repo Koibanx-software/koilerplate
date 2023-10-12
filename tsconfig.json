@@ -20,7 +20,14 @@
     "isolatedModules": true,
     "baseUrl": "./src",
     "paths": {
-      "src": ["src/*"]
+      "src": ["src/*"],
+      "config/*": ["config/*"],
+      "entities/*": ["entities/*"],
+      "repositories/*": ["repositories/*"],
+      "routes/*": ["routes/*"],
+      "services/*": ["services/*"],
+      "toolkit/*": ["toolkit/*"],
+      "utils/*": ["utils/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "types": ["jest"],
@@ -28,6 +35,6 @@
     "outDir": "./dist"
   },
   "compileOnSave": true,
-  "include": ["src", "test"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
