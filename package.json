@@ -1,7 +1,7 @@
 {
-  "name": "koiplate",
+  "name": "node-boilerplate",
   "version": "0.23.8",
-  "description": "Gateway de koiplate",
+  "description": "Boilerplate de node",
   "main": "dist/index.js",
   "directories": {
     "test": "tests"
