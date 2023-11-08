@@ -1,40 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["ES6"],
     "types": ["node", "jest"],
     "allowJs": true,
-    "checkJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "allowUnreachableCode": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "module": "commonjs",
-    "moduleResolution": "Node16",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "rootDir": "src",
+    "outDir": "./dist",
     "baseUrl": "./src",
+    "noFallthroughCasesInSwitch": true,
     "paths": {
-      "src": ["src/*"],
       "config/*": ["config/*"],
       "entities/*": ["entities/*"],
       "repositories/*": ["repositories/*"],
       "routes/*": ["routes/*"],
       "services/*": ["services/*"],
-      "toolkit/*": ["toolkit/*"],
       "utils/*": ["utils/*"]
-    },
-    "noFallthroughCasesInSwitch": true,
-    "types": ["jest"],
-    "typeRoots": ["./types", "./node_modules/@types"],
-    "outDir": "./dist"
+    }
   },
-  "compileOnSave": true,
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/**/*"]
 }

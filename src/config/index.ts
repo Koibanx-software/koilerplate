@@ -5,6 +5,7 @@ import { cleanEnv, json, str } from "envalid";
 
 dotenv.config();
 
+//TODO: VERIFIcar la viabilidad de consumirlo por process
 const env = cleanEnv(process.env, {
   MONGO_URI: str({ desc: "uri de la base de datos de mongodb" }),
   BUILD_SECRET: str({ desc: "secret de build koibanx" }),

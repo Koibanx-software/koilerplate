@@ -16,12 +16,6 @@ export class UserService {
     const newUser = await this.repositories.user.create({
       ...user,
     });
-    await this.repositories.auth.createUser({
-      username: newUser.id,
-      password: "123",
-      email: user.email,
-      roleName: user.role,
-    });
 
     return newUser;
   }
@@ -54,9 +48,6 @@ export class UserService {
     const log = this.logger.child({ function: "remove" });
     log.info({ id }, "remove");
     await this.repositories.user.findOne({ _id: id });
-    await Promise.all([
-      this.repositories.user.delete({ _id: id }),
-      this.repositories.auth.deleteUser(id),
-    ]);
+    await Promise.all([this.repositories.user.delete({ _id: id })]);
   }
 }
