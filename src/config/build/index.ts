@@ -4,6 +4,7 @@ import { CryptoCheckoutSDK } from "@koibanx/crypto-checkout-sdk";
 import { NotificationAPI } from "@koibanx/notification-sdk";
 import { ILogger } from "config/logger/Logger";
 
+//TODO: hacer mejor interaccion con las vaiables
 export let buildConfig: { apiKey: string; secret: string };
 export let buildSdk: BuildSDK;
 export let cryptoCheckoutSdk: CryptoCheckoutSDK;

@@ -1,21 +1,12 @@
-import * as auth from "./auth";
-import * as user from "./user";
-import { DependsOnMethod, Routing } from "express-zod-api";
+import { userRoutes } from "./users";
+import { Routing } from "express-zod-api";
+import { Services } from "services/index";
 
-export const routing: Routing = {
-  v1: {
-    user: {
-      "": new DependsOnMethod({
-        post: user.userCreate,
-        put: user.updateUser,
-      }),
+export const routes = (services: Services) => {
+  const routing: Routing = {
+    v1: {
+      user: userRoutes(services),
     },
-    auth: {
-      otp: auth.authOTP,
-      "sign-in": auth.signIn,
-      "change-password": auth.changePassword,
-      "forgot-password": auth.forgotPassword,
-      profile: auth.profileGet,
-    },
-  },
+  };
+  return routing;
 };
