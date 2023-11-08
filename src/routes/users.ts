@@ -6,6 +6,7 @@ import {
 import { defaultEndpointsFactory, DependsOnMethod } from "express-zod-api";
 import { withMeta } from "express-zod-api";
 import { Services } from "services/index";
+import { z } from "zod";
 
 export const userRoutes = (services: Services) => {
   return new DependsOnMethod({
@@ -15,7 +16,7 @@ export const userRoutes = (services: Services) => {
       shortDescription: "Creacion de usuarios",
       description: "Creacion de usuarios",
       input: withMeta(CreateUserSchema),
-      output: withMeta(UserSchema),
+      output: z.any() as any,
       handler: async ({ input, options, logger }) => {
         logger.debug("Options1:", options);
         const userCreated = await services.user.create(input);
@@ -28,7 +29,7 @@ export const userRoutes = (services: Services) => {
       shortDescription: "Actualizacion de usuarios",
       description: "Actualizacion de usuarios",
       input: withMeta(UpdateUserSchema),
-      output: withMeta(UserSchema),
+      output: z.any() as any,
       handler: async ({ input, options, logger }) => {
         const userCreated = await services.user.update(input);
         return userCreated;

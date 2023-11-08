@@ -1,7 +1,5 @@
 import { configVars } from "config";
-import { openBuildConnection } from "config/build";
 import { createHTTP } from "config/http";
-import { openMongoConnection } from "config/mongo";
 import moduleAlias from "module-alias";
 import { getRepositories } from "repositories";
 import { getServices, Services } from "services";
